@@ -1,56 +1,60 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { useRef, useEffect } from "react";
-import { IoPawOutline } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
-import { BsCupHot } from "react-icons/bs";
-import MapComponent from './GoogleMap';
-import { Pointer } from './magicui/pointer';
-import { NeonGradientCard } from "./magicui/neon-gradient-card";
-import { RainbowButton } from "./magicui/rainbow-button";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Navigation } from './Navigation';
 import { HeroSection } from './sections/HeroSection';
+import { OurWorkSection } from './sections/OurWorkSection';
 import { AboutUsSection } from './sections/AboutUsSection';
-import { MeetTheTeamSection } from './sections/MeetTheTeamSection';
+import { OurServicesSection } from './sections/OurServicesSection';
+import { OurTeamSection } from './sections/OurTeamSection';
 import { ScheduleAppointmentSection } from './sections/ScheduleAppointmentSection';
 import { MapSection } from './sections/MapSection';
 import { FooterSection } from './sections/FooterSection';
+// import { MissionSection } from "./sections/MissionSection"
 
 export function LandingClient() {
   const containerRef = useRef<HTMLDivElement>(null!);
+  const aboutRef = useRef<HTMLElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const teamRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
   
   const { scrollYProgress } = useScroll({
-    container: containerRef
-  });
-  
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
 
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+
   return (
-    <div className="relative h-screen">
-      <motion.div 
-        style={{ scaleX }} 
-        className="fixed left-0 right-0 top-0 h-1 bg-[#5e208e] z-50"
+    <>
+      <motion.div
+        className="fixed inset-0 bg-[#d8a0d2bf]"
+        style={{ opacity: backgroundOpacity }}
       />
       
-      <Navigation containerRef={containerRef} />
+      <Navigation
+        aboutRef={aboutRef}
+        servicesRef={servicesRef}
+        teamRef={teamRef}
+        contactRef={contactRef}
+      />
       
       <main 
         ref={containerRef}
-        className="h-screen overflow-y-scroll overflow-x-hidden"
+        className="relative"
       >
         <HeroSection />
-        <AboutUsSection />
-        <MeetTheTeamSection />
+        {/* <MissionSection /> */}
+        <OurWorkSection />
+        <AboutUsSection ref={aboutRef} />
+        <OurServicesSection ref={servicesRef} />
+        <OurTeamSection ref={teamRef} />
         <ScheduleAppointmentSection />
         <MapSection />
         <FooterSection />
       </main>
-    </div>
+    </>
   );
 } 

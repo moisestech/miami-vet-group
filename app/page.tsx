@@ -36,5 +36,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <LandingClient />;
+  return (
+    <main>
+      <LandingClient />
+    </main>
+  );
 }

@@ -3,8 +3,9 @@
 import { cn } from "@/lib/utils";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent } from "react";
+import { HTMLMotionProps } from "framer-motion";
 
-interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RainbowButtonProps {
   children: React.ReactNode;
   className?: string;
 }
@@ -13,7 +14,7 @@ export function RainbowButton({
   children,
   className,
   ...props
-}: RainbowButtonProps) {
+}: RainbowButtonProps & Omit<HTMLMotionProps<"button">, keyof RainbowButtonProps>) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -26,7 +27,7 @@ export function RainbowButton({
   return (
     <motion.button
       className={cn(
-        "group relative w-fit rounded-lg border border-white/30 bg-gradient-to-b from-neutral-50/10 to-neutral-100/10 px-4 py-2 shadow-2xl",
+        "relative inline-flex items-center justify-center overflow-hidden rounded-md bg-slate-800 px-8 py-3 font-medium text-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
         className
       )}
       onMouseMove={handleMouseMove}

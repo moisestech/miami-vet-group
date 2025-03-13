@@ -1,14 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { GiSittingDog } from "react-icons/gi";
 import { ShareCard } from "../ShareCard";
+import { MaskedGradientBackground } from "../MaskedGradientBackground";
 
 export function FooterSection() {
   return (
-    <section className="snap-start min-h-screen py-16 bg-[#d8a0d2bf]">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section className="snap-start min-h-screen py-16 bg-[#d8a0d2bf] relative overflow-hidden">
+      <MaskedGradientBackground 
+        maskPath="dog"
+        gradientColors={["#D8A0D2", "#BC85CC", "#5E208E"]}
+        icon={<GiSittingDog className="w-12 h-12 text-[#5e208e]" />}
+      />
+
+      {/* Content */}
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Visit Us Column */}
           <motion.div 
@@ -77,7 +85,7 @@ export function FooterSection() {
             <ShareCard 
               image="https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107130/miamivetgroup/Lux-Conteudo-quadrado-4_vcq0vx.png"
               title="Miami Vet Group"
-              description="Veterinary Clinic in Miami 🐶 🏥"
+              description="Veterinary Clinic in Miami �� 🏥"
             />
           </motion.div>
         </div>

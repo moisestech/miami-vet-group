@@ -2,11 +2,17 @@
 
 import { motion } from "framer-motion";
 import MapComponent from '../GoogleMap';
+import { MaskedGradientBackground } from '../MaskedGradientBackground';
 
 export function MapSection() {
   return (
-    <section className="snap-start min-h-screen py-16 bg-[#d8a0d2bf]">
-      <div className="container mx-auto px-4">
+    <section className="snap-start min-h-screen flex items-center bg-[#d8a0d2bf] py-16 relative overflow-hidden">
+      <MaskedGradientBackground 
+        maskPath="cat"
+        gradientColors={["#FFE6F7", "#FFC6F3", "#FFB1F5"]}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -15,10 +21,10 @@ export function MapSection() {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <h2 className="text-2xl font-bold mb-4 text-[#5e208e]">
+            <h2 className="text-6xl font-bold mb-6 text-[#5e208e]">
               Because we all deserve a second chance.
             </h2>
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-6 text-[#5e208e]/80 text-xl md:text-2xl">
               <p>Visit us at our location in Pinecrest.</p>
               <p className="font-semibold">12521 S Dixie Hwy, Pinecrest, FL 33156</p>
             </div>
@@ -29,7 +35,7 @@ export function MapSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="h-80 md:h-96 rounded-lg overflow-hidden shadow-lg"
+            className="h-80 md:h-96 rounded-lg overflow-hidden shadow-lg relative z-10"
           >
             <MapComponent />
           </motion.div>

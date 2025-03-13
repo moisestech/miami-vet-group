@@ -1,19 +1,22 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps, type MotionProps } from "framer-motion";
 import { useRef, useState } from "react";
 
-interface NeonGradientCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface NeonGradientCardProps {
   children: React.ReactNode;
   className?: string;
 }
+
+type NeonGradientCardMotionProps = Omit<HTMLMotionProps<"div">, keyof NeonGradientCardProps> & 
+  Omit<MotionProps, keyof HTMLMotionProps<"div">>;
 
 export function NeonGradientCard({
   children,
   className,
   ...props
-}: NeonGradientCardProps) {
+}: NeonGradientCardProps & NeonGradientCardMotionProps) {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
@@ -42,7 +45,7 @@ export function NeonGradientCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative flex overflow-hidden rounded-xl border border-purple-200/50 bg-gradient-to-b from-white to-purple-50/50 p-8 shadow-lg",
+        "relative overflow-hidden rounded-xl border border-slate-800 bg-gradient-to-b from-slate-800 to-slate-900",
         className
       )}
       {...props}
