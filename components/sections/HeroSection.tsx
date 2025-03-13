@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaWhatsapp, FaFacebookMessenger, FaPhone, FaInstagram } from "react-icons/fa";
 import { AuroraText } from "../magicui/aurora-text";
+import { sectionClass } from "@/lib/utils";
 
 const contactOptions = [
   {
@@ -38,7 +39,7 @@ const contactOptions = [
 
 export function HeroSection() {
   return (
-    <section className="snap-start min-h-screen flex items-center justify-center relative">
+    <section className={sectionClass}>
       <motion.div 
         className="absolute inset-0 z-0"
         initial={{ scale: 1.2 }}
@@ -56,27 +57,13 @@ export function HeroSection() {
       </motion.div>
       
       <motion.div 
-        className="container mx-auto px-4 z-10 grid grid-cols-1 md:grid-cols-2 gap-8"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2
-            }
-          }
-        }}
+        className="container mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <motion.div 
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 }
-          }}
-          className="flex flex-col justify-center"
-        >
-          <h1 className="flex flex-col items-start mb-4">
+        <div className="flex flex-col items-center md:items-start justify-center gap-8">
+          <h1 className="flex flex-col items-center md:items-start">
             <AuroraText
               colors={[
                 "#ff2e7e",  // Bright pink
@@ -85,22 +72,22 @@ export function HeroSection() {
                 "#fcbc00",  // Golden yellow
                 "#ffff00"   // Bright yellow
               ]}
-              className="[font-family:'Caveat_Brush'] text-7xl md:text-8xl lg:text-9xl leading-none"
+              className="[font-family:'Caveat_Brush'] text-6xl md:text-7xl lg:text-8xl leading-none"
               speed={0.7}
             >
               Miami Vet
             </AuroraText>
-            <span className="text-xl md:text-2xl lg:text-4xl font-bold text-[#5e208e] mt-0 -translate-y-8">
+            <span className="text-xl md:text-2xl lg:text-3xl font-bold text-[#5e208e] mt-0 -translate-y-4">
               GROUP
             </span>
           </h1>
 
-          <div className="flex flex-col gap-4">
-            <h3 className="text-white text-2xl py-3 font-bold tracking-wide">
+          <div className="w-full max-w-xl">
+            <h3 className="text-white text-xl md:text-2xl font-bold tracking-wide text-center md:text-left mb-4">
               Schedule Appointment
             </h3>
-            <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            <motion.div
+              className="grid grid-cols-2 gap-2 md:gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -111,39 +98,38 @@ export function HeroSection() {
                   href={option.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-3 p-6 rounded-2xl 
+                  className="aspect-square group flex flex-col items-center justify-center gap-1 md:gap-2 p-2 md:p-4 rounded-xl 
                     bg-white/20 backdrop-blur-md 
                     hover:bg-white/30 transition-all duration-300 
                     border border-white/30
-                    shadow-lg hover:shadow-xl"
+                    shadow-lg hover:shadow-xl
+                    w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] mx-auto"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <option.icon 
-                    className="w-12 h-12 md:w-16 md:h-16 transition-colors duration-300"
-                    style={{ 
-                      color: option.color,
-                    }}
+                    className="w-10 h-10 md:w-14 md:h-14 transition-colors duration-300"
+                    style={{ color: option.color }}
                   />
-                  <span 
-                    className="text-lg md:text-xl font-medium transition-colors duration-300 text-white"
-                  >
+                  <span className="text-xs md:text-base font-medium text-white text-center">
                     {option.name}
                   </span>
                 </motion.a>
               ))}
             </motion.div>
           </div>
-        </motion.div>
-        
+        </div>
+
         <motion.div 
+          className="flex items-center justify-center md:justify-end"
           variants={{
             hidden: { opacity: 0, scale: 0.8 },
             visible: { opacity: 1, scale: 1 }
           }}
-          className="flex justify-center items-center"
+          initial="hidden"
+          animate="visible"
         >
-          <div className="p-4 rounded-lg w-64 h-64 md:w-80 md:h-80">
+          <div className="w-40 h-40 md:w-56 md:h-56 p-4">
             <Image 
               src="https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107088/miamivetgroup/LOGO-POST-MIAMI-VET-15_wimddm.png"
               alt="Miami Vet Group Logo"
@@ -154,7 +140,6 @@ export function HeroSection() {
           </div>
         </motion.div>
       </motion.div>
-
     </section>
   );
 } 

@@ -14,7 +14,7 @@ import { FooterSection } from './sections/FooterSection';
 // import { MissionSection } from "./sections/MissionSection"
 
 export function LandingClient() {
-  const containerRef = useRef<HTMLDivElement>(null!);
+  const containerRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
   const teamRef = useRef<HTMLElement>(null);
@@ -43,7 +43,7 @@ export function LandingClient() {
       
       <main 
         ref={containerRef}
-        className="relative"
+        className="relative w-full min-h-screen overflow-x-hidden"
       >
         <HeroSection />
         {/* <MissionSection /> */}

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 import { AnimatedList } from "../magicui/animated-list";
-import { cn } from "@/lib/utils";
+import { cn, sectionClass } from "@/lib/utils";
 import { forwardRef, ForwardedRef } from 'react';
 
 interface Service {
@@ -203,28 +203,28 @@ const ServiceCard = ({ name, description, icon, color, time }: Service) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto min-h-fit w-full max-w-[735px] cursor-pointer overflow-hidden rounded-3xl p-8",
+        "relative mx-auto min-h-fit w-full cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl p-4 md:p-8",
         "transition-all duration-300 ease-in-out hover:scale-[102%]",
         "bg-white/20 backdrop-blur-md",
         "transform-gpu [border:1px_solid_rgba(255,255,255,.2)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       )}
     >
-      <div className="flex flex-row items-center gap-8">
+      <div className="flex flex-row items-center gap-3 md:gap-8">
         <div
-          className="flex size-24 items-center justify-center rounded-2xl"
+          className="flex size-16 md:size-24 items-center justify-center rounded-xl md:rounded-2xl shrink-0"
           style={{
             backgroundColor: color,
           }}
         >
-          <span className="text-3xl">{icon}</span>
+          <span className="text-2xl md:text-3xl">{icon}</span>
         </div>
-        <div className="flex flex-col overflow-hidden">
-          <figcaption className="flex flex-row items-center whitespace-pre text-2xl font-medium text-[#5e208e]">
-            <span>{name}</span>
-            <span className="mx-3">·</span>
-            <span className="text-base text-[#5e208e]/70">{time}</span>
+        <div className="flex flex-col overflow-hidden min-w-0">
+          <figcaption className="flex flex-row items-center text-xl md:text-2xl font-medium text-[#5e208e] gap-2 md:gap-3">
+            <span className="truncate">{name}</span>
+            <span className="shrink-0">·</span>
+            <span className="text-sm md:text-base text-[#5e208e]/70 shrink-0">{time}</span>
           </figcaption>
-          <p className="text-lg font-normal text-[#5e208e]/80">
+          <p className="text-base md:text-lg font-normal text-[#5e208e]/80 line-clamp-2 md:line-clamp-none">
             {description}
           </p>
         </div>
@@ -239,7 +239,7 @@ type OurServicesSectionProps = object;
 export const OurServicesSection = forwardRef<HTMLElement, OurServicesSectionProps>(
   (props, ref: ForwardedRef<HTMLElement>) => {
     return (
-      <section ref={ref} className="snap-start min-h-screen flex items-center bg-[#d8a0d2bf] py-16 relative overflow-hidden">
+      <section ref={ref} className={cn(sectionClass, "bg-[#d8a0d2bf]")}>
         <MaskedGradientBackground 
           maskPath="services"
           gradientColors={["#FFE6F7", "#FFC6F3", "#FFB1F5"]}
@@ -252,18 +252,22 @@ export const OurServicesSection = forwardRef<HTMLElement, OurServicesSectionProp
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-6xl font-bold text-[#5e208e] mb-6">Our Services</h2>
-            <p className="text-2xl text-[#5e208e]/80">
+            <h2 className="text-4xl md:text-6xl font-bold text-[#5e208e] mb-4 md:mb-6">Our Services</h2>
+            <p className="text-lg md:text-2xl text-[#5e208e]/80">
               Comprehensive care for your beloved pets
             </p>
           </motion.div>
 
           {/* List wrapper with fixed height */}
-          <div className="relative max-w-4xl mx-auto h-[70vh]">
+          <div className="relative max-w-4xl mx-auto h-[65vh] md:h-[70vh]">
             <div className="absolute inset-0">
-              <AnimatedList delay={150} className="h-full overflow-y-auto px-6">
+              <AnimatedList 
+                delay={150} 
+                className="h-full overflow-y-auto px-2 md:px-6 space-y-3 md:space-y-4 
+                  scrollbar-thin scrollbar-thumb-[#5e208e]/20 scrollbar-track-transparent"
+              >
                 {services.map((service, idx) => (
                   <ServiceCard key={idx} {...service} />
                 ))}

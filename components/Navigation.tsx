@@ -4,6 +4,8 @@ import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { FaPhone, FaFacebookMessenger, FaClock } from "react-icons/fa6";
 import { useState, useEffect, RefObject } from "react";
+import { NavMobile } from "./NavMobile";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export interface NavigationProps {
   aboutRef: RefObject<HTMLElement | null>;
@@ -12,9 +14,10 @@ export interface NavigationProps {
   contactRef: RefObject<HTMLElement | null>;
 }
 
-export function Navigation({ aboutRef, servicesRef, teamRef, contactRef }: NavigationProps) {
+export function Navigation(props: NavigationProps) {
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     const unsubscribeScroll = scrollY.on("change", (latest) => {
@@ -45,18 +48,16 @@ export function Navigation({ aboutRef, servicesRef, teamRef, contactRef }: Navig
     }
   };
 
-  const scrollToSection = (ref: RefObject<HTMLElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  if (isMobile) {
+    return <NavMobile {...props} variants={variants} hidden={hidden} />;
+  }
 
   return (
     <motion.nav
       variants={variants}
       animate={hidden ? "hidden" : "visible"}
       initial="visible"
-      className="fixed top-0 left-0 right-0 z-40 bg-white/10 backdrop-blur-md shadow-lg"
+      className="fixed top-0 left-0 right-0 z-40 bg-white/10 backdrop-blur-md shadow-lg hidden md:block"
     >
       <div className="container mx-auto px-4">
         <div className="h-20 flex items-center justify-between">
@@ -112,25 +113,25 @@ export function Navigation({ aboutRef, servicesRef, teamRef, contactRef }: Navig
         </div>
         <div className="flex items-center justify-center gap-8 h-12 border-t border-[#5e208e]/10">
           <button 
-            onClick={() => scrollToSection(aboutRef)}
+            onClick={() => scrollToSection(props.aboutRef)}
             className="text-[#5e208e] hover:text-[#5e208e]/80 transition-colors font-medium"
           >
             About
           </button>
           <button 
-            onClick={() => scrollToSection(servicesRef)}
+            onClick={() => scrollToSection(props.servicesRef)}
             className="text-[#5e208e] hover:text-[#5e208e]/80 transition-colors font-medium"
           >
             Services
           </button>
           <button 
-            onClick={() => scrollToSection(teamRef)}
+            onClick={() => scrollToSection(props.teamRef)}
             className="text-[#5e208e] hover:text-[#5e208e]/80 transition-colors font-medium"
           >
             Team
           </button>
           <button 
-            onClick={() => scrollToSection(contactRef)}
+            onClick={() => scrollToSection(props.contactRef)}
             className="text-[#5e208e] hover:text-[#5e208e]/80 transition-colors font-medium"
           >
             Contact
@@ -139,4 +140,10 @@ export function Navigation({ aboutRef, servicesRef, teamRef, contactRef }: Navig
       </div>
     </motion.nav>
   );
+}
+
+function scrollToSection(ref: RefObject<HTMLElement | null>) {
+  if (ref.current) {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  }
 } 
