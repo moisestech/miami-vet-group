@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RainbowButton } from "../magicui/rainbow-button";
 import { FaPaw, FaArrowRight } from "react-icons/fa";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 
