@@ -11,7 +11,7 @@ const contactOptions = [
   {
     name: "WhatsApp",
     icon: FaWhatsapp,
-    href: "https://wa.me/13055987387",
+    href: "https://wa.me/13054295509",
     color: "#e83f85",
     hoverColor: "#d62872"
   },
@@ -25,7 +25,7 @@ const contactOptions = [
   {
     name: "Call Us",
     icon: FaPhone,
-    href: "tel:+13055987387",
+    href: "tel:+17867130863",
     color: "#ed7160",
     hoverColor: "#da5e4d"
   },
