@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { RainbowButton } from "../magicui/rainbow-button";
-import { FaPaw } from "react-icons/fa";
+import { FaPaw, FaArrowRight } from "react-icons/fa";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 
 export function ScheduleAppointmentSection() {
@@ -67,14 +67,17 @@ export function ScheduleAppointmentSection() {
                 Schedule your appointment today.
               </motion.p>
             </div>
-            <motion.div
+            <motion.a
+              href="https://wa.me/13054295509"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#5e208e] text-white px-8 py-4 rounded-lg text-xl font-medium hover:bg-[#5e208e]/90 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <RainbowButton className="text-white bg-[#5e208e] hover:bg-[#5e208e]/90 text-2xl px-12 py-6">
-                Book Now
-              </RainbowButton>
-            </motion.div>
+              Book Now
+              <FaArrowRight />
+            </motion.a>
           </motion.div>
         </div>
       </div>
