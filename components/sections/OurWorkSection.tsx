@@ -406,9 +406,6 @@ export function OurWorkSection() {
                         <p className="text-lg text-[#5e208e]/80 mb-4">
                           {item.description}
                         </p>
-                        <p className="text-sm text-[#5e208e]/60">
-                          {item.date}
-                        </p>
                       </div>
                     </div>
                   </div>
