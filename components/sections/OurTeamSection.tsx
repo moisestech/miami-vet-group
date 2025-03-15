@@ -91,8 +91,7 @@ export const OurTeamSection = forwardRef<HTMLElement>((props, ref) => {
                   alt={doctor.name}
                   width={192}
                   height={192}
-                  className="rounded-full object-cover w-full h-full"
-                  style={{ objectPosition: '50% calc(50% + 50px)' }}
+                  className="rounded-full object-cover w-full h-full [object-position:50%_calc(50%+20px)] md:[object-position:50%_calc(50%+50px)]"
                 />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-[#5e208e] mb-1 md:mb-2">{doctor.name}</h3>

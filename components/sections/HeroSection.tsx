@@ -55,11 +55,16 @@ export function HeroSection() {
           Miami Vet
         </span>
         
-        {/* Main text layer */}
+        {/* Main text layer with gradient image background */}
         <span 
           className="relative [font-family:'Caveat_Brush'] text-6xl md:text-7xl lg:text-8xl leading-none"
           style={{
-            color: '#ffff00', // Changed to yellow
+            backgroundImage: `url(https://res.cloudinary.com/dck5rzi4h/image/upload/v1742054482/miamivetgroup/warm-gradient-miamivetgroup_ibsnax.jpg)`,
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         >
           Miami Vet
