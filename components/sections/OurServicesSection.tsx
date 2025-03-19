@@ -209,7 +209,7 @@ const ServiceCard = ({ name, description, icon, color, time }: Service) => {
         "transform-gpu [border:1px_solid_rgba(255,255,255,.2)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
       )}
     >
-      <div className="flex flex-row items-center gap-3 md:gap-8">
+      <div className="flex flex-row items-start gap-3 md:gap-8">
         <div
           className="flex size-16 md:size-24 items-center justify-center rounded-xl md:rounded-2xl shrink-0"
           style={{
@@ -218,13 +218,13 @@ const ServiceCard = ({ name, description, icon, color, time }: Service) => {
         >
           <span className="text-2xl md:text-3xl">{icon}</span>
         </div>
-        <div className="flex flex-col overflow-hidden min-w-0">
-          <figcaption className="flex flex-row items-center text-xl md:text-2xl font-medium text-[#5e208e] gap-2 md:gap-3">
-            <span className="truncate">{name}</span>
+        <div className="flex flex-col overflow-hidden min-w-0 flex-1">
+          <figcaption className="flex flex-row items-center text-xl md:text-2xl font-medium text-[#5e208e] gap-2 md:gap-3 flex-wrap">
+            <span className="break-words">{name}</span>
             <span className="shrink-0">·</span>
             <span className="text-sm md:text-base text-[#5e208e]/70 shrink-0">{time}</span>
           </figcaption>
-          <p className="text-base md:text-lg font-normal text-[#5e208e]/80 line-clamp-2 md:line-clamp-none">
+          <p className="text-base md:text-lg font-normal text-[#5e208e]/80 break-words">
             {description}
           </p>
         </div>
