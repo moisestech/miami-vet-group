@@ -11,7 +11,9 @@ import { OurTeamSection } from './sections/OurTeamSection';
 import { ScheduleAppointmentSection } from './sections/ScheduleAppointmentSection';
 import { MapSection } from './sections/MapSection';
 import { FooterSection } from './sections/FooterSection';
-// import { MissionSection } from "./sections/MissionSection"
+import { TestimonialsSection } from './sections/TestimonialsSection';
+import { WeAcceptSection } from './sections/WeAcceptSection';
+import { SocialsSection } from './sections/SocialsSection';
 
 export function LandingClient() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,6 +55,9 @@ export function LandingClient() {
         <OurTeamSection ref={teamRef} />
         <ScheduleAppointmentSection />
         <MapSection />
+        <TestimonialsSection />
+        <SocialsSection />
+        <WeAcceptSection />
         <FooterSection />
       </main>
     </>

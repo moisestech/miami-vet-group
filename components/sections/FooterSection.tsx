@@ -85,7 +85,7 @@ export function FooterSection() {
             <ShareCard 
               image="https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107130/miamivetgroup/Lux-Conteudo-quadrado-4_vcq0vx.png"
               title="Miami Vet Group"
-              description="Veterinary Clinic in Miami �� 🏥"
+              description="Veterinary Clinic in Miami 🏥"
             />
           </motion.div>
         </div>

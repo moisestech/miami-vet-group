@@ -12,34 +12,34 @@ const contactOptions = [
     name: "WhatsApp",
     icon: FaWhatsapp,
     href: "https://wa.me/13054295509",
-    color: "#e83f85",
-    hoverColor: "#d62872"
+    bgColor: "#e83f85",
+    hoverBgColor: "#d62872"
   },
   {
     name: "Messenger",
     icon: FaFacebookMessenger,
     href: "https://m.me/miamivetgroup",
-    color: "#ec5d8f",
-    hoverColor: "#d94a7c"
+    bgColor: "#ec5d8f",
+    hoverBgColor: "#d94a7c"
   },
   {
     name: "Call Us",
     icon: FaPhone,
     href: "tel:+17867130863",
-    color: "#ed7160",
-    hoverColor: "#da5e4d"
+    bgColor: "#ed7160",
+    hoverBgColor: "#da5e4d"
   },
   {
     name: "Instagram",
     icon: FaInstagram,
     href: "https://instagram.com/miamivetgroup",
-    color: "#fab51d",
-    hoverColor: "#e7a20a"
+    bgColor: "#fab51d",
+    hoverBgColor: "#e7a20a"
   }
 ];
 
 export function HeroSection() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 1028px)");
 
   const MobileTitle = () => (
     <h1 className="flex flex-col items-center md:items-start">
@@ -52,7 +52,7 @@ export function HeroSection() {
             transform: 'translate(2px, 2px)',
           }}
         >
-          Miami Vet
+          Miami Vet Group
         </span>
         
         {/* Main text layer with gradient image background */}
@@ -67,11 +67,11 @@ export function HeroSection() {
             backgroundPosition: 'center',
           }}
         >
-          Miami Vet
+          Miami Vet Group
         </span>
       </div>
-      <span className="text-xl md:text-2xl lg:text-3xl font-bold text-[#5e208e] mt-2">
-        GROUP
+      <span className="text-3xl lg:text-4xl text-[#5e208e] text-center font-bold mt-4 translate-y-4">
+        General & Integrative Animal Hospital
       </span>
     </h1>
   );
@@ -86,13 +86,13 @@ export function HeroSection() {
           "#fcbc00",  // Golden yellow
           "#ffff00"   // Bright yellow
         ]}
-        className="[font-family:'Caveat_Brush'] text-6xl md:text-7xl lg:text-8xl leading-none"
+        className="[font-family:'Caveat_Brush'] text-9xl md:text-9xl lg:text-9xl leading-none"
         speed={0.7}
       >
-        Miami Vet
+        Miami Vet Group
       </AuroraText>
-      <span className="text-xl md:text-2xl lg:text-3xl font-bold text-[#5e208e] mt-0 -translate-y-4">
-        GROUP
+      <span className="text-3xl lg:text-4xl text-[#5e208e] font-bold mt-4 -translate-y-10">
+        General & Integrative Animal Hospital
       </span>
     </h1>
   );
@@ -116,54 +116,14 @@ export function HeroSection() {
       </motion.div>
       
       <motion.div 
-        className="container mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12"
+        className="container mx-auto relative z-10 flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-12 py-8 lg:py-16"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="flex flex-col items-center md:items-start justify-center gap-4 md:gap-8">
-          {isMobile ? <MobileTitle /> : <DesktopTitle />}
-
-          <div className="w-full max-w-xl">
-            <h3 className="text-white text-xl md:text-2xl font-bold tracking-wide text-center md:text-left mb-18 md:mb-4">
-              Schedule Appointment
-            </h3>
-            <motion.div
-              className="grid grid-cols-2 gap-3 md:gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              {contactOptions.map((option) => (
-                <motion.a
-                  key={option.name}
-                  href={option.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square group flex flex-col items-center justify-center gap-1 md:gap-2 p-2 md:p-4 rounded-xl 
-                    bg-white/20 backdrop-blur-md 
-                    hover:bg-white/30 transition-all duration-300 
-                    border border-white/30
-                    shadow-lg hover:shadow-xl
-                    w-[calc(60%-0.5rem)] md:w-[calc(85%-2rem)] mx-auto"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <option.icon 
-                    className="w-12 h-12 md:w-14 md:h-14 transition-colors duration-300"
-                    style={{ color: option.color }}
-                  />
-                  <span className="text-xs md:text-base font-medium text-white text-center">
-                    {option.name}
-                  </span>
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-
+        {/* Logo - Shows first on mobile */}
         <motion.div 
-          className="flex items-center justify-center md:justify-end mt-0 md:mt-4"
+          className="order-1 lg:order-2 flex items-center justify-center lg:justify-end mb-6 lg:mb-0"
           variants={{
             hidden: { opacity: 0, scale: 0.8 },
             visible: { opacity: 1, scale: 1 }
@@ -171,16 +131,66 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
         >
-          <div className="w-32 h-32 md:w-56 md:h-56 p-2 md:p-4">
+          <motion.div 
+            className="w-48 h-48 lg:w-[500px] lg:h-[500px] p-2 lg:p-4"
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+          >
             <Image 
               src="https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107088/miamivetgroup/LOGO-POST-MIAMI-VET-15_wimddm.png"
               alt="Miami Vet Group Logo"
-              width={300}
-              height={300}
+              width={500}
+              height={500}
               className="w-full h-full object-contain"
             />
-          </div>
+          </motion.div>
         </motion.div>
+
+        {/* Title and CTA section */}
+        <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start justify-center gap-6 lg:gap-10">
+          {isMobile ? <MobileTitle /> : <DesktopTitle />}
+
+          <div className="w-full">
+            <motion.div
+              className="p-6 lg:p-8 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="text-white text-xl lg:text-3xl font-bold tracking-wide text-left mb-6">
+                Schedule Appointment
+              </h3>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                {contactOptions.map((option) => (
+                  <div key={option.name} className="flex flex-col items-center gap-2">
+                    <span className="text-sm lg:text-lg font-medium text-white text-center">
+                      {option.name}
+                    </span>
+                    <motion.a
+                      href={option.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full aspect-square flex items-center justify-center rounded-xl 
+                        shadow-lg hover:shadow-xl transition-all duration-300"
+                      style={{
+                        backgroundColor: option.bgColor,
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: option.hoverBgColor 
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <option.icon 
+                        className="w-12 h-12 lg:w-16 lg:h-16 text-white"
+                      />
+                    </motion.a>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

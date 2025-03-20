@@ -199,7 +199,7 @@ const services: Service[] = [
   }
 ];
 
-const ServiceCard = ({ name, description, icon, color, time }: Service) => {
+const ServiceCard = ({ name, description, icon, color }: Service) => {
   return (
     <figure
       className={cn(
@@ -221,8 +221,8 @@ const ServiceCard = ({ name, description, icon, color, time }: Service) => {
         <div className="flex flex-col overflow-hidden min-w-0 flex-1">
           <figcaption className="flex flex-row items-center text-xl md:text-2xl font-medium text-[#5e208e] gap-2 md:gap-3 flex-wrap">
             <span className="break-words">{name}</span>
-            <span className="shrink-0">·</span>
-            <span className="text-sm md:text-base text-[#5e208e]/70 shrink-0">{time}</span>
+            {/* <span className="shrink-0">·</span> */}
+            {/* <span className="text-sm md:text-base text-[#5e208e]/70 shrink-0">{time}</span> */}
           </figcaption>
           <p className="text-base md:text-lg font-normal text-[#5e208e]/80 break-words">
             {description}

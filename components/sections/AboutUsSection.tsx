@@ -1,15 +1,13 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Pointer } from "@/components/magicui/pointer";
 import { motion } from "framer-motion";
-import { RainbowButton } from "../magicui/rainbow-button";
-import { FaRegHeart } from "react-icons/fa";
-import { IoPawOutline } from "react-icons/io5";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 import { forwardRef, ForwardedRef } from 'react';
+import Link from "next/link";
 
 export const AboutUsSection = forwardRef<HTMLElement>((_, ref: ForwardedRef<HTMLElement>) => {
+
   return (
     <section ref={ref} className="snap-start min-h-screen flex items-center bg-[#d8a0d2bf] py-16 relative overflow-hidden">
       <MaskedGradientBackground 
@@ -17,7 +15,7 @@ export const AboutUsSection = forwardRef<HTMLElement>((_, ref: ForwardedRef<HTML
         gradientColors={["#FFE6F7", "#FFC6F3", "#FFB1F5"]}
       />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,33 +39,41 @@ export const AboutUsSection = forwardRef<HTMLElement>((_, ref: ForwardedRef<HTML
                 Our Mission
               </CardDescription>
             </CardHeader>
-            <CardContent className="relative flex h-40 items-center justify-center p-6">
-              <span className="pointer-events-none text-center">
+            <CardContent className="relative flex h-60 md:h-40 items-center justify-center p-6">
+              <span className="text-center">
                 <p className="text-gray-600">
                   <strong className="text-[#5e208e]">Miami Vet Group</strong> is on a mission to strengthen the human-animal bond through better veterinary care.
                 </p>
-                <div className="mt-4">
-                  <RainbowButton className="text-white bg-[#5e208e] hover:bg-[#5e208e]/90">
-                    Learn More
-                  </RainbowButton>
+                <div className="my-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="mt-8 flex justify-center"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link 
+                        href="/mission"
+                        className="inline-block px-8 py-4 rounded-xl 
+                          bg-gradient-to-r from-[#e83f85] to-[#fab51d] 
+                          text-white text-lg font-medium
+                          shadow-lg hover:shadow-xl
+                          border border-white/30
+                          backdrop-blur-sm
+                          transition-all duration-300
+                          hover:brightness-110
+                          z-20"
+                      >
+                        Learn More
+                      </Link>
+                    </motion.div>
+                  </motion.div>
                 </div>
               </span>
             </CardContent>
-            <Pointer>
-              <motion.div
-                animate={{
-                  scale: [0.8, 1, 0.8],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                <FaRegHeart className="w-8 h-8 text-[#5e208e]" />
-              </motion.div>
-            </Pointer>
           </Card>
 
           <Card className="overflow-hidden border-none bg-white shadow-lg transition-all hover:shadow-xl">
@@ -80,25 +86,10 @@ export const AboutUsSection = forwardRef<HTMLElement>((_, ref: ForwardedRef<HTML
               </CardDescription>
             </CardHeader>
             <CardContent className="relative flex h-40 items-center justify-center p-6">
-              <span className="pointer-events-none text-center text-gray-600">
+              <span className="text-center text-gray-600">
                 Miami Veterinary Group <strong className="text-[#5e208e]">is a family practice</strong> where we strive to treat our patients and their parents as individuals.
               </span>
             </CardContent>
-            <Pointer>
-              <motion.div
-                animate={{
-                  scale: [0.8, 1, 0.8],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                <IoPawOutline className="w-8 h-8 text-[#5e208e]" />
-              </motion.div>
-            </Pointer>
           </Card>
         </div>
       </div>

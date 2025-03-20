@@ -41,7 +41,7 @@ export function NavMobile({ aboutRef, servicesRef, teamRef, contactRef, variants
                 className="w-10 h-10 object-contain"
               />
               <span className="text-[#5e208e] font-semibold text-lg">
-                Miami Vet
+                Miami Vet Group
               </span>
             </motion.div>
 
