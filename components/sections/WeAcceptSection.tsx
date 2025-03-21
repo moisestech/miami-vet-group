@@ -19,7 +19,7 @@ const insuranceOptions = [
     color: "#e83f85"
   },
   {
-    name: "Todo Tipo de Seguro",
+    name: "All types of insurance",
     icon: FileCheck,
     color: "#5e208e"
   }
