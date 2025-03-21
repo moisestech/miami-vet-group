@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp, FaFacebookMessenger, FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import { MapSection } from "@/components/sections/MapSection";
-import { FooterSection } from "@/components/sections/FooterSection";
+import MapSection from "@/components/sections/MapSection";
+import FooterSection from "@/components/sections/FooterSection";
 
 const contactMethods = [
   {

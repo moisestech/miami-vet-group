@@ -1,14 +1,22 @@
 "use client";
 
+// REACT
+import { forwardRef } from "react";
+
+// THIRD PARTY
 import { motion } from "framer-motion";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { GiSittingDog } from "react-icons/gi";
+
+// COMPONENTS
 import { ShareCard } from "../ShareCard";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 
-export function FooterSection() {
+// ICONS
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { GiSittingDog } from "react-icons/gi";
+
+const FooterSection = forwardRef<HTMLElement>(function FooterSection(_, ref) {
   return (
-    <section className="snap-start min-h-screen py-16 bg-[#d8a0d2bf] relative overflow-hidden">
+    <section ref={ref} className="snap-start min-h-screen py-16 bg-[#d8a0d2bf] relative overflow-hidden">
       <MaskedGradientBackground 
         maskPath="dog"
         gradientColors={["#D8A0D2", "#BC85CC", "#5E208E"]}
@@ -92,4 +100,6 @@ export function FooterSection() {
       </div>
     </section>
   );
-} 
+});
+
+export default FooterSection;

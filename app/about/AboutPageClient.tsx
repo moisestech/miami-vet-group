@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
-import { FooterSection } from "@/components/sections/FooterSection";
+import FooterSection from "@/components/sections/FooterSection";
 import { allTeamMembers, companyValues } from "@/data/team";
 
 export function AboutPageClient() {

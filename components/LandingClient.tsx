@@ -9,8 +9,8 @@ import { AboutUsSection } from './sections/AboutUsSection';
 import { OurServicesSection } from './sections/OurServicesSection';
 import { OurTeamSection } from './sections/OurTeamSection';
 import { ScheduleAppointmentSection } from './sections/ScheduleAppointmentSection';
-import { MapSection } from './sections/MapSection';
-import { FooterSection } from './sections/FooterSection';
+import MapSection from './sections/MapSection';
+import FooterSection from './sections/FooterSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { WeAcceptSection } from './sections/WeAcceptSection';
 import { SocialsSection } from './sections/SocialsSection';
@@ -55,10 +55,10 @@ export function LandingClient() {
         <OurTeamSection ref={teamRef} />
         <ScheduleAppointmentSection />
         <MapSection />
+        <WeAcceptSection />
         <TestimonialsSection />
         <SocialsSection />
-        <WeAcceptSection />
-        <FooterSection />
+        <FooterSection ref={contactRef} />
       </main>
     </>
   );

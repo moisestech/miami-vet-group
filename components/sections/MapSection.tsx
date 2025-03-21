@@ -1,12 +1,15 @@
 "use client";
 
+// THIRD PARTY
 import { motion } from "framer-motion";
+
+// COMPONENTS
 import MapComponent from '../GoogleMap';
 import { MaskedGradientBackground } from '../MaskedGradientBackground';
 
-export function MapSection() {
+const MapSection = () => {
   return (
-    <section className="snap-start min-h-screen flex items-center bg-[#d8a0d2bf] py-16 relative overflow-hidden">
+    <section className="snap-start min-h-screen flex items-center bg-[#d8a0d2bf] py-16 relative overflow-hidden" id="contact">
       <MaskedGradientBackground 
         maskPath="cat"
         gradientColors={["#FFE6F7", "#FFC6F3", "#FFB1F5"]}
@@ -43,4 +46,6 @@ export function MapSection() {
       </div>
     </section>
   );
-} 
+};
+
+export default MapSection;
