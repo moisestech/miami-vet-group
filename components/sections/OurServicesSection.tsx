@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { MaskedGradientBackground } from "../MaskedGradientBackground";
 import { AnimatedList } from "../magicui/animated-list";
 import { cn, sectionClass } from "@/lib/utils";
-import { forwardRef, ForwardedRef } from 'react';
+import { forwardRef, ForwardedRef, useRef } from 'react';
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { ScrollIndicator } from "../ScrollIndicator";
 
 interface Service {
   name: string;
@@ -238,6 +240,14 @@ type OurServicesSectionProps = object;
 
 export const OurServicesSection = forwardRef<HTMLElement, OurServicesSectionProps>(
   (props, ref: ForwardedRef<HTMLElement>) => {
+    const isTablet = useMediaQuery("(min-width: 768px)");
+    const isDesktop = useMediaQuery("(min-width: 1024px)");
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    const gridColumns = isDesktop ? 3 : isTablet ? 2 : 1;
+
+    console.log(gridColumns);
+
     return (
       <section ref={ref} className={cn(sectionClass, "bg-[#d8a0d2bf]")}>
         <MaskedGradientBackground 
@@ -261,18 +271,23 @@ export const OurServicesSection = forwardRef<HTMLElement, OurServicesSectionProp
           </motion.div>
 
           {/* List wrapper with fixed height */}
-          <div className="relative max-w-4xl mx-auto h-[65vh] md:h-[70vh]">
+          <div className="relative max-w-7xl mx-auto h-[65vh] md:h-[70vh]">
             <div className="absolute inset-0">
-              <AnimatedList 
-                delay={150} 
-                className="h-full overflow-y-auto px-2 md:px-6 space-y-3 md:space-y-4 
+              <div 
+                ref={scrollContainerRef}
+                className="h-full overflow-y-auto px-2 md:px-6 
                   scrollbar-thin scrollbar-thumb-[#5e208e]/20 scrollbar-track-transparent"
               >
-                {services.map((service, idx) => (
-                  <ServiceCard key={idx} {...service} />
-                ))}
-              </AnimatedList>
+                <AnimatedList delay={150}>
+                  <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 pb-16`}>
+                    {services.map((service, idx) => (
+                      <ServiceCard key={idx} {...service} />
+                    ))}
+                  </div>
+                </AnimatedList>
+              </div>
             </div>
+            <ScrollIndicator containerRef={scrollContainerRef as React.RefObject<HTMLDivElement>} />
           </div>
         </div>
       </section>

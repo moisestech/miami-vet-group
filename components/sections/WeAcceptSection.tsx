@@ -14,7 +14,7 @@ const insuranceOptions = [
     color: "#5e208e"
   },
   {
-    name: "Scratchpad",
+    name: "Scratchpay",
     icon: FaPaw,
     color: "#e83f85"
   },

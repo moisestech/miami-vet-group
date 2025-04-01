@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 // COMPONENTS
 import MapComponent from '../GoogleMap';
 import { MaskedGradientBackground } from '../MaskedGradientBackground';
+import { CopyText } from '../CopyText';
 
 const MapSection = () => {
   return (
@@ -29,7 +30,10 @@ const MapSection = () => {
             </h2>
             <div className="space-y-6 text-[#5e208e]/80 text-xl md:text-2xl">
               <p>Visit us at our location in Pinecrest.</p>
-              <p className="font-semibold">12521 S Dixie Hwy, Pinecrest, FL 33156</p>
+              <CopyText 
+                text="12521 S Dixie Hwy, Pinecrest, FL 33156"
+                className="font-semibold hover:text-[#5e208e] transition-colors"
+              />
             </div>
           </motion.div>
           

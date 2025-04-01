@@ -24,8 +24,8 @@ export const AboutUsSection = forwardRef<HTMLElement>((_, ref: ForwardedRef<HTML
           className="text-center mb-12"
         >
           <h2 className="text-6xl font-bold text-[#5e208e] mb-6">About Us</h2>
-          <p className="text-2xl text-[#5e208e]/80 mb-12">
-            Dedicated to providing exceptional veterinary care
+          <p className="text-lg md:text-2xl text-[#5e208e]/80">
+            As the leading holistic vet near Pinecrest, Miami Vet Group combines traditional veterinary medicine with natural and integrative approaches. Our comprehensive vet hospital provides homeopathic treatments and natural pet care solutions for your beloved companions.
           </p>
         </motion.div>
 
