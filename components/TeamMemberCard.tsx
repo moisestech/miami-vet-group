@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaInstagram } from "react-icons/fa6";
 import { TeamMember } from "@/data/team";
 
-export function TeamMemberCard({ name, role, image, instagram, objectPosition = "50% calc(50% + 5px)" }: TeamMember) {
+export function TeamMemberCard({ name, role, image, objectPosition = "50% calc(50% + 5px)" }: TeamMember) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
