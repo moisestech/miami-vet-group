@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaInstagram } from "react-icons/fa6";
 import { TeamMember } from "@/data/team";
 
-export function TeamMemberCard({ name, role, image, instagram }: TeamMember) {
+export function TeamMemberCard({ name, role, image, instagram, objectPosition = "50% calc(50% + 5px)" }: TeamMember) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -23,15 +23,15 @@ export function TeamMemberCard({ name, role, image, instagram }: TeamMember) {
         <Image
           src={image}
           alt={name}
-          width={128}
-          height={128}
+          width={200}
+          height={200}
           className="rounded-full object-cover w-full h-full"
-          style={{ objectPosition: '50% calc(50% + 5px)' }}
+          style={{ objectPosition }}
         />
       </div>
       <h3 className="text-lg md:text-xl font-bold text-[#5e208e] mb-1">{name}</h3>
       <p className="text-sm md:text-base text-[#5e208e]/80 mb-2">{role}</p>
-      {instagram && (
+      {/* {instagram && (
         <motion.a
           href={`https://instagram.com/${instagram}`}
           target="_blank"
@@ -44,7 +44,7 @@ export function TeamMemberCard({ name, role, image, instagram }: TeamMember) {
           <FaInstagram className="w-4 h-4 text-[#5e208e]" />
           <span className="text-sm text-[#5e208e] font-medium">@{instagram}</span>
         </motion.a>
-      )}
+      )} */}
     </motion.div>
   );
 } 

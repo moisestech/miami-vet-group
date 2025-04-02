@@ -6,37 +6,39 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
-  bio?: string; // Optional bio field
-  instagram?: string; // Optional instagram field
+  instagram?: string;
+  bio?: string;
   order: {
     mobile: number;
     desktop: number;
-  };
+  },
+  objectPosition?: string;
 }
 
 // Doctor/Veterinarian Team
 export const doctors: TeamMember[] = [
   {
     name: "Dr. Francelis Gonzalez",
-    role: "Veterinarian",
+    role: "Veterinarian & Founder",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107085/miamivetgroup/WhatsApp-Image-2023-02-18-at-12.30.22_ho9ar4.jpg",
-    bio: "Specializes in integrative veterinary medicine, combining conventional treatments with holistic approaches.",
     instagram: "dr.rod305",
-    order: {
+    bio: "Specializes in integrative veterinary medicine, combining conventional treatments with holistic approaches.",
+    order: { 
       mobile: 1,
       desktop: 1
-    }
+    },
+    objectPosition: "50% calc(50% + 15px)"
   },
   {
     name: "Dr. Luzzelena Perez",
     role: "Veterinarian",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107092/miamivetgroup/WhatsApp-Image-2023-02-18-at-12.30.22-1_mmwlkd.jpg",
-    bio: "Focuses on preventative care and nutrition, helping pets maintain optimal health throughout their lives.",
     instagram: "miamivetgroupdrluzz",
     order: {
       mobile: 2,
       desktop: 3
-    }
+    },
+   objectPosition: "50% calc(50% + 15px)"
   }
 ];
 
@@ -44,44 +46,45 @@ export const doctors: TeamMember[] = [
 export const staff: TeamMember[] = [
   {
     name: "Mare Arias",
-    role: "Founder & Manager",
+    role: "Manager",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1743456364/miamivetgroup/mare-miami-vet-gruop-family_awsi9a.jpg",
-    bio: "As our Practice Manager, Mare ensures the smooth operation of Miami Vet Group, coordinating between our medical team and clients to provide the best possible care experience.",
     instagram: "miamivetgroup",
+    bio: "As our Practice Manager, Mare ensures the smooth operation of Miami Vet Group, coordinating between our medical team and clients to provide the best possible care experience.",
     order: {
-      mobile: 3,
+      mobile: 2,
       desktop: 2
-    }
+    },
+    objectPosition: "50% calc(50% + 15px)"
   },
   {
     name: "Kat",
     role: "Vet Tech",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107103/miamivetgroup/contact-us-miami-vet-e1712431137711_vv1fha.jpg",
-    bio: "Provides compassionate care and assistance with treatments and procedures.",
     order: {
-      mobile: 4,
+      mobile:  4,
       desktop: 4
-    }
+    },
+    objectPosition: "50% calc(50% + 5px)"
   },
   {
     name: "Marcela",
     role: "Vet Tech",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107095/miamivetgroup/contact-us-miami-vet-1-e1712431328760_kfuwoi.jpg",
-    bio: "Specializes in patient care and monitoring, ensuring pets are comfortable during their visits.",
     order: {
       mobile: 5,
       desktop: 5
-    }
+    },
+    objectPosition: "50% calc(50% + 5px)"
   },
   {
     name: "Luis",
     role: "Assistant",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107086/miamivetgroup/miami-vet-group-family-1-e1712431478744_jt0qzp.jpg",
-    bio: "Helps with daily operations and ensures the clinic runs smoothly for both patients and clients.",
     order: {
       mobile: 6,
       desktop: 6
-    }
+    },
+    objectPosition: "50% calc(50% + 5px)"
   }
 ];
 
