@@ -18,7 +18,7 @@ export interface TeamMember {
 // Doctor/Veterinarian Team
 export const doctors: TeamMember[] = [
   {
-    name: "Dr. Francelis Gonzalez",
+    name: "Dr. Francelis Rodriguez",
     role: "Veterinarian & Founder",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107085/miamivetgroup/WhatsApp-Image-2023-02-18-at-12.30.22_ho9ar4.jpg",
     instagram: "dr.rod305",
@@ -30,7 +30,7 @@ export const doctors: TeamMember[] = [
     objectPosition: "50% calc(50% + 15px)"
   },
   {
-    name: "Dr. Luzzelena Perez",
+    name: "Dr. Luzzelena Rodriguez",
     role: "Veterinarian",
     image: "https://res.cloudinary.com/dck5rzi4h/image/upload/v1741107092/miamivetgroup/WhatsApp-Image-2023-02-18-at-12.30.22-1_mmwlkd.jpg",
     instagram: "miamivetgroupdrluzz",
